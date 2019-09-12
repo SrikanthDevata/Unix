@@ -1,0 +1,110 @@
+Sed-Stream Editor tutorial
+
+Sed is one of the  interesting command in Unix
+Sed - Stream Editor
+
+******************************************************************************
+sed 's/t/T/' test.txt
+
+substitute the first occurrence of 't' with 'T' in the file test.txt and display on screen,orginal files remains unchanged
+
+--------------------------------------------------------------------------------------------------------------------------
+sed 's/t/T/g' test.txt
+
+substitute all/globally the occurrences of 't' with 'T' in the file test.txt and display on screen,orginal files remains unchanged.
+
+--------------------------------------------------------------------------------------------------------------------------
+sed -i 's/t/T/g' test.txt
+
+substitute  inline/in the file all/globally the occurrences of 't' with 'T' in the file test.txt,orginal file gets modified.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+sed 's/^t/T/g' test.txt
+
+substitute only  the begining of the line with 't' with the 'T'
+
+^--indicates the begining of the file
+
+--------------------------------------------------------------------------------------------------------------------------
+
+sed 's/t$/T/g' test.txt
+
+substitute only  the ending of the line with 't' with the 'T'
+
+$--indicates the ending of the file
+
+--------------------------------------------------------------------------------------------------------------------------
+
+sed 's/[0-9]/*/g' test.txt
+
+substitute all the numbers in the file with *
+
+--------------------------------------------------------------------------------------------------------------------------
+sed 's/[a-z]/*/g' test.txt
+
+
+substitute all the lowercase letters in the file with *
+--------------------------------------------------------------------------------------------------------------------------
+sed 's/[A-Z]/*/g' test.txt
+
+
+substitute all the capital letters in the file with *
+--------------------------------------------------------------------------------------------------------------------------
+
+SED Whole Word Match with Boundaries
+
+sed 's/\bnew\b\old/I/g' test.txt
+
+replaces only the word new with old in the test file
+
+\b -means boundary
+
+--------------------------------------------------------------------------------------------------------------------------
+
+SED Remove Lines When Match is Found
+
+sed '/new/d' test.txt
+
+--------------------------------------------------------------------------------------------------------------------------
+SED Like Head to Display Top of File
+
+sed '5,$ d' test.txt
+
+Deletes the lines starting from 5 to end of the file ,i.e displays only first 4 lines of the file
+
+
+sed '4 q' test.txt
+
+Display first 4 lines in the file and then quit
+
+--------------------------------------------------------------------------------------------------------------------------
+SED Remove Comments From a file
+
+sed '/^#/d' test.txt
+
+Delete all the lines starting with #
+
+sed '1!{/^#/d;}' test.txt
+
+Skip line 1 and Delete all the lines starting with #
+
+--------------------------------------------------------------------------------------------------------------------------
+SED print every other line
+
+sed -n 'p;n' test.txt
+
+print every other line(1,3,5,7),skip one line
+
+sed -n 'p;n;n' test.txt
+print every other 2 lines(1,4,7,10),skip 2 lines
+
+--------------------------------------------------------------------------------------------------------------------------
+
+sed '=' test.txt
+print line number and print the line after that
+
+sed -n '$=' test.txt
+print last line number alone ,which is nothing but the count of number of lines in a file
+--------------------------------------------------------------------------------------------------------------------------
+
